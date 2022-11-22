@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <div class="header">
+          <div class="bg__card__back">
+            <p class="back__card__cvc" id="cvc__code">000</p>
+          </div>
+          <div class="bg__card__front">
+            <img src="images/card-logo.svg" alt="" class="front__card__logo" />
+            <p class="card__number" id="name__card">0000 0000 0000 0000</p>
+
+            <div class="flex__name">
+              <p id="name__change">JANE APPLESSED</p>
+              <p><span id="months">00</span>/<span id="years">00</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="main">
+          <form action="/" id="fForm" onsubmit="return validation()">
+            <div class="margin__top__bottom">
+              <div>
+                <label for="fname">Cardholder Name</label>
+              </div>
+
+              <input
+                type="text"
+                name="name"
+                id="fname"
+                onkeyup="changeName()"
+                placeholder="e.g. Jane Appleseed"
+                maxlength="20"
+              />
+
+              <p id="cardHolderName__error"></p>
+            </div>
+
+            <div class="margin__top__bottom">
+              <div>
+                <label for="cardNumber">Card Number</label>
+              </div>
+
+              <input
+                type="text"
+                name="cardNumber"
+                id="cardNumber"
+                maxlength="19"
+                placeholder="e.g. 1234 5678 9123 0000"
+                class="realTimeChange"
+                onkeyup="changeCardNumber()"
+              />
+
+              <p id="cardNumber__error"></p>
+            </div>
+
+            <div class="month__cvc margin__top__bottom">
+              <div class="year__months">
+                <div>
+                  <label class="label__margin">Exp. Date (MM/YY)</label>
+                </div>
+                <div class="flex__row">
+                  <input
+                    type="text"
+                    name="month"
+                    id="month"
+                    placeholder="MM"
+                    maxlength="2"
+                    class="realTimeChange"
+                    onkeyup="changeCardMonths()"
+                  />
+
+                  <input
+                    type="text"
+                    name="year"
+                    id="year"
+                    placeholder="YY"
+                    maxlength="2"
+                    class="realTimeChange"
+                    onkeyup="changeCardYears()"
+                  />
+                </div>
+                <p id="months__years__error"></p>
+              </div>
+              <div class="cvc">
+                <div>
+                  <label for="cvcNumber">CVC</label>
+                </div>
+
+                <input
+                  type="text"
+                  name="cvcNumber"
+                  id="cvcNumber"
+                  placeholder="e.g. 123"
+                  maxlength="3"
+                  class="realTimeChange"
+                  onkeyup="changeCardCvc()"
+                />
+                <p id="cvc__error"></p>
+              </div>
+            </div>
+
+            <button type="submit" class="margin__top__bottom">Confirm</button>
+          </form>
+
+          <div class="complete">
+            <img src="images/icon-complete.svg" alt="" />
+            <div class="thankyou">Thank you!</div>
+            <div class="added">We've added your card details</div>
+            <button>Continue</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
